@@ -6,13 +6,13 @@ const HeroSection = () => {
 
       <header className="w-full py-6 px-4 bg-transparent text-black shadow-none">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="w-32 h-auto"> {/* You can adjust width and height as needed */}
+          <div className="w-32 h-auto"> 
             <Image
-              src="/images/zapp.png" // Make sure the logo is in the public/images folder
+              src="/images/zapp.png" 
               alt="Zapp Logo"
-              width={128} // Adjust width based on the logo size
-              height={40} // Adjust height based on the logo size
-              className="object-contain" // This ensures the logo scales nicely
+              width={128} 
+              height={40} 
+              className="object-contain" 
             />
           </div>
           <nav className="space-x-6">
