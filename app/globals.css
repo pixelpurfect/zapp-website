@@ -19,3 +19,21 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* Reset margins and padding for body and html */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set a default font and background */
+body {
+  font-family: 'Inter', sans-serif; /* or your preferred font */
+  background-color: white;
+}
+
+/* Remove default margin from images */
+img {
+  margin: 0;
+}
