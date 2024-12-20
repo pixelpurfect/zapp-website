@@ -3,8 +3,9 @@ import Image from 'next/image';
 export default function Home() {
   return (
     <div className="bg-white text-gray-900">
-      {/* Header Section */}
-      <header className="w-full py-6 px-4 bg-primary text-white shadow-md">
+
+      {/* Header Section: Transparent Navbar */}
+      <header className="w-full py-6 px-4 bg-transparent text-black shadow-none">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <h1 className="font-bold text-2xl">Zapp</h1>
           <nav className="space-x-6">
@@ -15,58 +16,37 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary to-secondary py-24 px-4 text-white text-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-4">Get Your Food Fast and Easy with Zapp</h2>
-        <p className="text-lg md:text-xl mb-8">Delivering fresh and delicious food, right to your doorstep.</p>
-        <a
-          href="#features"
-          className="bg-white text-primary py-2 px-6 rounded-lg text-lg font-semibold hover:bg-gray-200 transition"
-        >
-          Explore Features
-        </a>
-      </section>
+      {/* Hero Section (Content Positioned Directly Below Navbar) */}
+      <section className="relative w-full h-screen bg-white">
+        {/* Content */}
+        <div className="relative z-10 flex items-center justify-between max-w-7xl mx-auto px-6 mt-0"> {/* Removed padding, added mt-0 */}
+          {/* Left Side: Text and CTA */}
+          <div className="w-full md:w-1/2 text-left">
+            <h2 className="text-4xl font-extrabold text-black mb-4">Your campus. Your delivery route!</h2>
+            <p className="text-lg mb-6 text-black">
+              We provide fast and reliable delivery service, bringing delicious meals to your doorstep in no time.
+            </p>
+            <a
+              href="#get-started"
+              className="bg-orange-500 text-black py-3 px-8 rounded-lg text-lg font-semibold hover:bg-orange-400 transition-all"
+            >
+              Get Started
+            </a>
+          </div>
 
-      {/* Features Section */}
-      <section id="features" className="py-16 px-4 bg-gray-100">
-        <div className="max-w-7xl mx-auto text-center">
-          <h3 className="text-3xl font-bold text-primary mb-8">Why Choose Zapp?</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Feature 1 */}
-            <div className="p-8 bg-white rounded-xl shadow-lg">
-              <h4 className="text-2xl font-semibold mb-4">Fast Delivery</h4>
-              <p className="text-lg text-gray-700">
-                We deliver your food quickly, so you can enjoy your meals without the wait.
-              </p>
-            </div>
-            {/* Feature 2 */}
-            <div className="p-8 bg-white rounded-xl shadow-lg">
-              <h4 className="text-2xl font-semibold mb-4">Affordable Pricing</h4>
-              <p className="text-lg text-gray-700">
-                Enjoy your favorite dishes at the best prices, without breaking the bank.
-              </p>
-            </div>
-            {/* Feature 3 */}
-            <div className="p-8 bg-white rounded-xl shadow-lg">
-              <h4 className="text-2xl font-semibold mb-4">Variety of Choices</h4>
-              <p className="text-lg text-gray-700">
-                From local favorites to global cuisines, we have something for everyone.
-              </p>
-            </div>
+          {/* Right Side: Biryani Image */}
+          <div className="relative w-full md:w-1/2 flex justify-end overflow-hidden">
+            <Image
+              src="/images/biryani.png" // Ensure the image path is correct
+              alt="Biryani"
+              width={800} // Adjust width as necessary for a large image
+              height={800} // Adjust height to maintain the aspect ratio
+              className="object-cover max-w-full h-auto"
+            />
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-16 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <h3 className="text-3xl font-bold text-primary mb-8">About Zapp</h3>
-          <p className="text-lg md:text-xl text-gray-700">
-            Zapp is your go-to food delivery service, bringing the best restaurants and local kitchens
-            straight to your door. We aim to make ordering food faster, easier, and more convenient.
-          </p>
-        </div>
-      </section>
 
       {/* Footer Section */}
       <footer className="py-8 bg-primary text-white text-center">
