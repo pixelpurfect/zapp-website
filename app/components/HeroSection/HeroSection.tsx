@@ -6,7 +6,15 @@ const HeroSection = () => {
 
       <header className="w-full py-6 px-4 bg-transparent text-black shadow-none">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <h1 className="font-bold text-2xl">Zapp</h1>
+          <div className="w-32 h-auto"> {/* You can adjust width and height as needed */}
+            <Image
+              src="/images/zapp.png" // Make sure the logo is in the public/images folder
+              alt="Zapp Logo"
+              width={128} // Adjust width based on the logo size
+              height={40} // Adjust height based on the logo size
+              className="object-contain" // This ensures the logo scales nicely
+            />
+          </div>
           <nav className="space-x-6">
             <a href="#features" className="hover:text-secondary">Features</a>
             <a href="#about" className="hover:text-secondary">About</a>
@@ -42,7 +50,6 @@ const HeroSection = () => {
         </div>
       </section>
 
-      
     </div>
   );
 };
