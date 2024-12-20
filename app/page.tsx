@@ -4,7 +4,6 @@ export default function Home() {
   return (
     <div className="bg-white text-gray-900">
 
-      {/* Header Section: Transparent Navbar */}
       <header className="w-full py-6 px-4 bg-transparent text-black shadow-none">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <h1 className="font-bold text-2xl">Zapp</h1>
@@ -16,11 +15,8 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section (Content Positioned Directly Below Navbar) */}
       <section className="relative w-full h-screen bg-white">
-        {/* Content */}
-        <div className="relative z-10 flex items-center justify-between max-w-7xl mx-auto px-6 mt-0"> {/* Removed padding, added mt-0 */}
-          {/* Left Side: Text and CTA */}
+        <div className="relative z-10 flex items-center justify-between max-w-7xl mx-auto px-6 mt-0">
           <div className="w-full md:w-1/2 text-left">
             <h2 className="text-4xl font-extrabold text-black mb-4">Your campus. Your delivery route!</h2>
             <p className="text-lg mb-6 text-black">
@@ -34,21 +30,18 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Right Side: Biryani Image */}
           <div className="relative w-full md:w-1/2 flex justify-end overflow-hidden">
             <Image
-              src="/images/biryani.png" // Ensure the image path is correct
+              src="/images/biryani.png"
               alt="Biryani"
-              width={800} // Adjust width as necessary for a large image
-              height={800} // Adjust height to maintain the aspect ratio
+              width={800}
+              height={800}
               className="object-cover max-w-full h-auto"
             />
           </div>
         </div>
       </section>
 
-
-      {/* Footer Section */}
       <footer className="py-8 bg-primary text-white text-center">
         <p>&copy; 2024 Zapp | All Rights Reserved</p>
         <div className="flex justify-center space-x-6 mt-4">
@@ -59,3 +52,4 @@ export default function Home() {
     </div>
   );
 }
+
