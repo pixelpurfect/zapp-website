@@ -5,7 +5,7 @@ import HeroSection from './components/HeroSection/HeroSection';  // Import HeroS
 import Footer from './components/Footer/Footer';
 import Features from './components/Features/Features';
 import AboutUs from './components/AboutUs/AboutUs';
-import ContactUs from './ContactUs/ContactUs';
+import ContactUs from './components/ContactUs/ContactUs';
 
 const Home = () => {
   return (

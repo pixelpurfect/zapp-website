@@ -1,8 +1,50 @@
-// components/ContactUs/ContactUs.tsx
+'use client'; // Add this line to mark the file as a client component
 
+import { useState } from 'react';
 import Image from 'next/image';
+import { firestore } from '../../lib/firebase';  // Import Firestore from lib/firebase
+import { collection, doc, addDoc } from 'firebase/firestore'; // Import the necessary Firestore functions
 
 const ContactUs = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [remarks, setRemarks] = useState('');
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Validate form data
+    if (!name || !email || !remarks) {
+      alert('Please fill in all fields!');
+      return;
+    }
+
+    try {
+      // Reference to the 'queries' collection inside 'demo/mailqueries'
+      const queriesRef = collection(doc(firestore, 'demo', 'mailqueries'), 'queries');
+      
+      // Add new document to 'queries' collection
+      await addDoc(queriesRef, {
+        name,
+        email,
+        remarks,
+        timestamp: new Date(),
+      });
+
+      // Clear form fields after successful submission
+      setName('');
+      setEmail('');
+      setRemarks('');
+
+      // Provide success feedback
+      alert('Message sent successfully!');
+    } catch (error) {
+      console.error('Error sending message: ', error);
+      alert('There was an error. Please try again.');
+    }
+  };
+
   return (
     <section id="contact" className="w-full py-16 bg-gray-100">
       <div className="max-w-7xl mx-auto flex flex-wrap items-center px-6">
@@ -22,12 +64,14 @@ const ContactUs = () => {
         <div className="w-full lg:w-1/2">
           <h2 className="text-4xl font-bold text-black mb-6">Contact Us</h2>
 
-          <form action="#" method="POST">
+          <form onSubmit={handleSubmit}>
             {/* Name Input */}
             <input
               type="text"
               placeholder="Your Name"
               className="w-full px-4 py-2 mb-4 text-lg border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
 
             {/* Email Input */}
@@ -35,6 +79,8 @@ const ContactUs = () => {
               type="email"
               placeholder="Your Email"
               className="w-full px-4 py-2 mb-4 text-lg border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
 
             {/* Remarks Textarea */}
@@ -42,8 +88,10 @@ const ContactUs = () => {
               <textarea
                 placeholder="Your Remarks"
                 className="w-full px-4 py-4 text-lg border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none h-40"
+                value={remarks}
+                onChange={(e) => setRemarks(e.target.value)}
               ></textarea>
-              
+
               {/* Send Button inside the Textarea */}
               <button
                 type="submit"
@@ -60,4 +108,3 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
-
