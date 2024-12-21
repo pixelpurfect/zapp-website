@@ -1,6 +1,7 @@
-// components/HeroSection/HeroSection.tsx
+'use client'; // Mark this as a client component
 
 import Image from 'next/image';
+import Link from 'next/link'; // Use Link for navigation to the SellersPage
 
 const HeroSection = () => {
   return (
@@ -14,12 +15,11 @@ const HeroSection = () => {
           <p className="text-lg text-gray-700 mb-6">
             We provide fast and reliable delivery service, bringing delicious meals to your doorstep in no time.
           </p>
-          <a
-            href="#get-started"
-            className="bg-orange-500 text-black py-3 px-8 rounded-lg text-lg font-semibold hover:bg-orange-400 transition-all"
-          >
-            Get Started
-          </a>
+          <Link href="/SellersPage"> {/* Use Link for navigation */}
+            <button className="bg-orange-500 text-black py-3 px-8 rounded-lg text-lg font-semibold hover:bg-orange-400 transition-all">
+              Get Started
+            </button>
+          </Link>
         </div>
 
         {/* Image Content */}
